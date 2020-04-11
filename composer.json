@@ -1,0 +1,29 @@
+{
+	"name": "mezon/filter",
+	"description": "Class for filters compilation",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dodonov Alexey",
+			"email": "alexey@dodonov.pro",
+			"homepage": "http://gdzone.ru",
+			"role": "Founder"
+		}
+	],
+	"require": {
+		"php": "^7.2"
+	},
+	"support": {
+		"email": "alexey@dodonov.pro",
+		"issues": "https://github.com/alexdodonov/mezon-filter/issues",
+		"source": "https://github.com/alexdodonov/mezon-filter"
+	},
+	"minimum-stability": "dev",
+	"homepage": "https://github.com/alexdodonov/mezon-filter",
+	"prefer-stable": true,
+	"autoload": {
+		"psr-4": {
+			"Mezon\\": ""
+		}
+	}
+}
