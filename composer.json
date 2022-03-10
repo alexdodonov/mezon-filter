@@ -10,6 +10,13 @@
 			"role": "Founder"
 		}
 	],
+	"require-dev": {
+		"phpunit/phpunit": "^8.5",
+		"phpunit/php-token-stream": "3.1.2",
+		"vimeo/psalm": "^4.2",
+		"infection/infection": "^0.21.5",
+		"phpdocumentor/phpdocumentor": "^3.1"
+	},
 	"require": {
 		"php": ">=7.2.0"
 	},
@@ -23,7 +30,16 @@
 	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
-			"Mezon\\": ""
+			"Mezon\\": "./Mezon"
 		}
+	},
+	"scripts": {
+		"test": "php ./vendor/phpunit/phpunit/phpunit --testsuit all --order-by=random",
+		"debug": "php ./vendor/phpunit/phpunit/phpunit --testsuit all --order-by=random --random-order-seed 1643146030",
+		"psalm": "php ./vendor/vimeo/psalm/psalm --show-info=true --no-cache",
+		"infection": "php ./vendor/infection/infection/bin/infection --min-msi=57"
+	},
+	"config": {
+		"process-timeout": 0
 	}
 }

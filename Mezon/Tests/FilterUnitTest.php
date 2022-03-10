@@ -1,13 +1,19 @@
 <?php
-require_once (__DIR__ . '/../Filter.php');
+namespace Mezon\Tests;
 
-class FilterUnitTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+/**
+ * 
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
+class FilterUnitTest extends TestCase
 {
 
     /**
      * Testing addFilterConditionFromArr method
      */
-    function testAddFilterConditionFromArr(): void
+    public function testAddFilterConditionFromArr(): void
     {
         // setup and test body
         $result = \Mezon\Filter::addFilterConditionFromArr([
@@ -47,7 +53,7 @@ class FilterUnitTest extends \PHPUnit\Framework\TestCase
     /**
      * Testing addFilterConditionFromArr method
      */
-    function testAddFilterConditionFromArrException(): void
+    public function testAddFilterConditionFromArrException(): void
     {
         // assertions
         $this->expectException(\Exception::class);
@@ -65,7 +71,7 @@ class FilterUnitTest extends \PHPUnit\Framework\TestCase
     /**
      * Testing addFilterConditionFromArr method
      */
-    function testAddFilterConditionFromArrSimple(): void
+    public function testAddFilterConditionFromArrSimple(): void
     {
         // setup and test body
         $result = \Mezon\Filter::addFilterConditionFromArr([
@@ -85,7 +91,7 @@ class FilterUnitTest extends \PHPUnit\Framework\TestCase
     /**
      * Testing additing conditions
      */
-    function testAddFilterCondition(): void
+    public function testAddFilterCondition(): void
     {
         // setup
         $where = [
@@ -106,7 +112,7 @@ class FilterUnitTest extends \PHPUnit\Framework\TestCase
     /**
      * Testing additing conditions with default branch
      */
-    function testAddFilterConditionDefault(): void
+    public function testAddFilterConditionDefault(): void
     {
         // setup
         $where = [

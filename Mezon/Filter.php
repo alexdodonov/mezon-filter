@@ -8,7 +8,7 @@ namespace Mezon;
  * @subpackage Filter
  * @author Dodonov A.A.
  * @version v.1.0 (2019/09/15)
- * @copyright Copyright (c) 2020, aeon.org
+ * @copyright Copyright (c) 2020, http://aeon.su
  */
 
 /**
@@ -21,8 +21,8 @@ class Filter
      * Method returns simple operator
      *
      * @param array $item
-     *            Expression item with operator
-     * @return string Operator.
+     *            expression item with operator
+     * @return string operator
      */
     protected static function getOperator(array $item): string
     {
@@ -51,11 +51,11 @@ class Filter
     /**
      * Method returns argument
      *
-     * @param string $arg
-     *            Argument name orr value
+     * @param string|array|int|float $arg
+     *            argument name orr value
      * @param mixed $op
-     *            Operator
-     * @return string Argument
+     *            pperator
+     * @return string argument
      */
     protected static function getArg($arg, $op = false): string
     {
@@ -63,11 +63,11 @@ class Filter
             $result = '( ' . implode(' , ', $arg) . ' )';
         } elseif (is_array($arg)) {
             $result = '( ' . self::getStatement($arg) . ' )';
-        } elseif (strpos($arg, '$') === 0) {
+        } elseif (is_string($arg) && strpos($arg, '$') === 0) {
             $result = substr($arg, 1);
         } else {
             if (is_numeric($arg)) {
-                $result = $arg;
+                $result = '' . $arg;
             } else {
                 $result = "'" . $arg . "'";
             }
@@ -79,8 +79,8 @@ class Filter
      * Method compiles statement
      *
      * @param array $item
-     *            Expression
-     * @return string Compiled expression
+     *            expression
+     * @return string compiled expression
      */
     protected static function getStatement(array $item): string
     {
@@ -95,10 +95,10 @@ class Filter
      * Complex where compilation
      *
      * @param array $arr
-     *            List of structured expressions
+     *            list of structured expressions
      * @param array $where
-     *            List of compiled conditions
-     * @return array New list of compiled conditons
+     *            list of compiled conditions
+     * @return array new list of compiled conditons
      */
     protected static function compileWhere(array $arr, array $where): array
     {
@@ -113,10 +113,10 @@ class Filter
      * Method adds where condition
      *
      * @param array $arr
-     *            Array of fields to be fetched
+     *            array of fields to be fetched
      * @param array $where
-     *            Conditions
-     * @return array Conditions
+     *            conditions
+     * @return array conditions
      */
     public static function addFilterConditionFromArr(array $arr, array $where): array
     {
@@ -147,8 +147,8 @@ class Filter
      * Method adds where condition
      *
      * @param array $where
-     *            Conditions
-     * @return array Conditions
+     *            conditions
+     * @return array conditions
      */
     public static function addFilterCondition(array $where): array
     {
